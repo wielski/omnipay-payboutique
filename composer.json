@@ -25,10 +25,5 @@
     "require": {
         "omnipay/common": "~2.0",
         "servo/fluidxml": "^1.21"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "dev"
-        }
     }
 }
