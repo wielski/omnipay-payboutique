@@ -1,0 +1,29 @@
+{
+    "name": "siqwell/omnipay-payboutique",
+    "type": "library",
+    "description": "PayBoutique driver for the Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "payboutique",
+        "payb"
+    ],
+    "homepage": "https://github.com/siqwell/omnipay-payboutique",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Andrzej Wielski",
+            "email": "mail@wielski.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Payboutique\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0",
+        "servo/fluidxml": "^1.21"
+    }
+}
