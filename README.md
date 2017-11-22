@@ -51,9 +51,9 @@ $response = $gateway->purchase([
     'amount' => '10.00',
     'currency' => 'USD', // USD, RUB, EUR, etc.
     'paymentMethod' => 'CreditCard', // Qiwi, CreditCard, YandexMoney, BankTransfer
-    'returnUrl' => 'http://finmaxbo.com/good', // Redirect to success page
-    'cancelUrl' => 'http://finmaxbo.com/bad', // Redirect to failed page
-    'notifyUrl' => 'http://finmaxbo.com/notify', // Notify URL
+    'returnUrl' => 'http://merchant.com/success', // Redirect to success page
+    'cancelUrl' => 'http://merchant.com/failed', // Redirect to failed page
+    'notifyUrl' => 'http://merchant.com/notify', // Notify URL
     'description' => 'Description'
 ])->send();
 ```
