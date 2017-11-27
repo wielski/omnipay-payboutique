@@ -19,8 +19,18 @@ class PurchaseRequest extends AbstractRequest
 
         $data->query('/Message/Body/Order')->addChild('MerchantCurrency', $this->getCurrency());
         $data->query('/Message/Body/Order')->addChild('AmountMerchantCurrency', $this->getAmount());
-        $data->query('/Message/Body/Order')->addChild('Description', $this->getDescription());
-        $data->query('/Message/Body/Order')->addChild('OrderID', $this->getOrderId());
+
+        if ($description = $this->getDescription()) {
+            $data->query('/Message/Body/Order')->addChild('Description', $description);
+        }
+
+        if ($orderId = $this->getOrderId()) {
+            $data->query('/Message/Body/Order')->addChild('OrderID', $orderId);
+        }
+
+        if ($accountId = $this->getAccountId()) {
+            $data->query('/Message/Body/Order')->addChild('AccountID', $accountId);
+        }
 
         $data->query('/Message/Header/Identity')->addChild('Signature', $this->getSignature());
 

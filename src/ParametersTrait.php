@@ -178,6 +178,24 @@ trait ParametersTrait
     }
 
     /**
+     * Set Account ID
+     * @return string
+     */
+    public function setAccountId($value)
+    {
+        return $this->setParameter('accountId', $value);
+    }
+
+    /**
+     * Get Account ID
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->getParameter('accountId');
+    }
+
+    /**
      * Get signature
      * @return string
      */
