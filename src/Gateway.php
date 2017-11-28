@@ -29,7 +29,8 @@ class Gateway extends AbstractGateway
             'userID'        => '',
             'merchantID'    => '',
             'siteAddress'   => '',
-            'password'      => ''
+            'password'      => '',
+            'date'          => date('c')
         );
     }
 }
