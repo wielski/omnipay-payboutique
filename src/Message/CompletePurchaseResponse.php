@@ -36,4 +36,32 @@ class CompletePurchaseResponse extends AbstractResponse
     {
         return $this->isSuccessful() ? 'OK' : 'ERR';
     }
+
+    /**
+     * @return string
+     */
+    public function confirm()
+    {
+        $this->exitWith('OK');
+    }
+
+    /**
+     * @return string
+     */
+    public function error()
+    {
+        $this->exitWith('ERR');
+    }
+
+    /**
+     * @codeCoverageIgnore
+     *
+     * @param string $result
+     */
+    public function exitWith($result)
+    {
+        header('Content-Type: text/plain; charset=utf-8');
+        echo $result;
+        exit;
+    }
 }
