@@ -19,7 +19,9 @@ trait ParametersTrait
 
     /**
      * Set Endpoint
+     *
      * @param $value
+     *
      * @return mixed
      */
     public function setEndpoint($value)
@@ -38,7 +40,9 @@ trait ParametersTrait
 
     /**
      * Set User ID
+     *
      * @param $value
+     *
      * @return mixed
      */
     public function setUserId($value)
@@ -57,7 +61,9 @@ trait ParametersTrait
 
     /**
      * Set Merchant ID
+     *
      * @param $value
+     *
      * @return mixed
      */
     public function setMerchantId($value)
@@ -76,7 +82,9 @@ trait ParametersTrait
 
     /**
      * Set Site Address
+     *
      * @param $value
+     *
      * @return mixed
      */
     public function setSiteAddress($value)
@@ -95,7 +103,9 @@ trait ParametersTrait
 
     /**
      * Set Live Flag
+     *
      * @param $value
+     *
      * @return mixed
      */
     public function setLive($value)
@@ -114,7 +124,9 @@ trait ParametersTrait
 
     /**
      * Set API Version
+     *
      * @param $value
+     *
      * @return mixed
      */
     public function setApiVersion($value)
@@ -133,7 +145,9 @@ trait ParametersTrait
 
     /**
      * Set Password
+     *
      * @param $value
+     *
      * @return mixed
      */
     public function setPassword($value)
@@ -160,8 +174,8 @@ trait ParametersTrait
     }
 
     /**
-     * Set Time
-     * @return string
+     * @param $value
+     * @return mixed
      */
     public function setOrderId($value)
     {
@@ -178,8 +192,8 @@ trait ParametersTrait
     }
 
     /**
-     * Set Account ID
-     * @return string
+     * @param $value
+     * @return mixed
      */
     public function setAccountId($value)
     {

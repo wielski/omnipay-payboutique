@@ -2,6 +2,7 @@
 
 namespace Omnipay\Payboutique\Message;
 
+use FluidXml\FluidXml;
 use Omnipay\Common\Message\AbstractResponse as OmnipayAbstractResponse;
 
 /**
@@ -16,25 +17,29 @@ abstract class AbstractResponse extends OmnipayAbstractResponse
      */
     public function validateChecksum()
     {
-        $userId = array_shift($this->data['transactionReference']->query('/Message/Header/Identity/UserID')->array());
-        $checksum = array_shift($this->data['transactionReference']->query('/Message/Header/Identity/Checksum')->array());
-        $time = array_shift($this->data['transactionReference']->query('/Message/Header/Time')->array());
-        $referenceId = array_shift($this->data['transactionReference']->query('/Message/Body/ReportedTransaction/ReferenceID')->array());
+        /** @var FluidXml $xml */
+        $xml = $this->data['transactionReference'];
+
+        $userId      = strip_tags($xml->query('/Message/Header/Identity/UserID')->html());
+        $checksum    = strip_tags($xml->query('/Message/Header/Identity/Checksum')->html());
+        $time        = strip_tags($xml->query('/Message/Header/Time')->html());
+        $referenceId = strip_tags($xml->query('/Message/Body/ReportedTransaction/ReferenceID')->html());
+
 
         if (!$referenceId || !$checksum || !$time || !$referenceId) {
             return false;
         }
 
         $hashParts = [
-            strtoupper($userId->nodeValue),
+            strtoupper($userId),
             strtoupper(hash('sha512', $this->data['password'])),
-            strtoupper($time->nodeValue),
-            $referenceId->nodeValue
+            strtoupper($time),
+            $referenceId
         ];
 
         $signature = strtoupper(hash('sha512', implode('', $hashParts)));
 
-        if ($checksum->nodeValue === $signature) {
+        if ($checksum === $signature) {
             return true;
         }
 
